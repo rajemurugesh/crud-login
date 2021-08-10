@@ -2,11 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
-import UserClass from "./routes/user";
+import AuthRoute from "./routes/Auth.route";
 
 
 
 const app = express();
+const PORT = 8080;
 
 dotenv.config()
 
@@ -23,7 +24,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
 
 
 
-app.use('/', new UserClass().router)
+app.use('/', new AuthRoute().router)
 
 //const db = 'mongodb+srv://Rajeswari:raje1992@cluster0.cf3cw.mongodb.net/Data'
 //const db = 'mongodb+srv://Rajeswari:raje1992@cluster0.vznru.mongodb.net/Register'
