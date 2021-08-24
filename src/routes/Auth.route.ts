@@ -1,4 +1,5 @@
 import * as express from 'express'
+import { User } from '../model/user.model';
 import AuthService from "../service/Auth.service";
 
 class AuthRoute  {
@@ -13,7 +14,15 @@ class AuthRoute  {
     }
     
     private  _signup = async (req: express.Request, res: express.Response) => {
-
+        User.find({emailId: req.body.emailId})
+        .exec()
+        .then(async (User: any)=>{
+            if(User.length >= 1) {
+                return res.status(409).json({
+                    message: 'Mail exists'
+                })
+            }
+               });
         try {
             const {name, emailId, password}= req.body
 
