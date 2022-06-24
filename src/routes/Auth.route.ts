@@ -36,10 +36,9 @@ class AuthRoute  {
             res.json({ data :  result });  
         } catch (err) {
  
-            console.log("Error occured in _signup",err);
+            console.log("Error occured in _signup");
 
                 res.status(400).json({
-                    message: err.toString()
                 });  
            
         }
@@ -65,10 +64,9 @@ class AuthRoute  {
             res.json({ data :  result });  
         } catch (err) {
  
-            console.log("Error occured in _signIn",err);
+            console.log("Error occured in _signIn",);
 
                 res.status(400).json({
-                    message: err.toString()
                 });  
            
         }
